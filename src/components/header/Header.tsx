@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom'
 const Header: React.FC = () => {
 	const [toggle, setToggle] = useState('hidden')
 	return (
-		<nav className='flex items-center justify-between flex-wrap bg-white p-4 shadow-lg sticky top-0 z-10'>
+		<nav className='flex items-center justify-between flex-wrap bg-white p-4 mb-4 shadow-md sticky top-0 z-10'>
 			<div className='flex items-center flex-no-shrink text-black mr-6'>
-				<span className='font-semibold text-xl tracking-tight'>
+				<span className='font-semibold text-2xl tracking-tight'>
 					<i className='fab fa-shopware m-3 mr-5 text-2xl text-black w-4 h-4'></i>
 					ShopStar
 				</span>

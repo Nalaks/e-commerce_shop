@@ -2,10 +2,10 @@ import React from 'react'
 
 const Footer: React.FC = () => {
 	return (
-		<footer className='text-gray-700 body-font fixed bottom-0 w-screen'>
-			<div className='container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col'>
+		<footer className='text-gray-700 body-font'>
+			<div className='container px-5 py-4 mx-auto flex items-center sm:flex-row flex-col'>
 				<a className='flex title-font font-medium items-center md:justify-start justify-center text-gray-900'>
-					<i className='fab fa-shopware mb-2 mr-5 text-3xl text-black w-4 h-4'></i>
+					<i className='fab fa-shopware mb-1 text-xl text-black w-4 h-4'></i>
 					<span className='ml-3 text-xl'>ShopStar</span>
 				</a>
 				<p className='text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4'>
