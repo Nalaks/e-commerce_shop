@@ -4,7 +4,7 @@ import Products from './Products'
 const Home: React.FC = () => {
 	return (
 		<>
-			<section className='text-black body-font'>
+			<section className='text-black body-font flex items-center justify-center'>
 				<div className='container px-5 py-4 mx-auto'>
 					<h1 className='text-4xl tracking-wider'>Latest Products</h1>
 					<Products />

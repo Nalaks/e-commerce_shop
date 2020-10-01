@@ -6,12 +6,14 @@ const Header: React.FC = () => {
 	return (
 		<nav className='flex items-center justify-between flex-wrap bg-white p-4 mb-4 shadow-md sticky top-0 z-10'>
 			<div className='flex items-center flex-no-shrink text-black mr-6'>
-				<span className='font-semibold text-2xl tracking-tight'>
+				<Link
+					to='/'
+					className='font-semibold text-2xl tracking-tight'>
 					<i className='fab fa-shopware m-3 mr-5 text-2xl text-black w-4 h-4'></i>
 					ShopStar
-				</span>
+				</Link>
 			</div>
-			<span className='w-80% md:w-1/3 h-10 md:ml-32 bg-gray-200 cursor-pointer border border-gray-300 text-sm rounded-full flex'>
+			<span className='w-80% md:w-1/3 h-10 md:ml-32 bg-gray-200 cursor-pointer border border-gray-300 text-sm rounded-full flex mr-4'>
 				<input
 					type='search'
 					name='serch'
@@ -41,21 +43,25 @@ const Header: React.FC = () => {
 				<div className='text-sm lg:flex-grow'></div>
 				<div>
 					<div className='text-sm lg:flex-grow'>
-						<a className='block mt-4 lg:inline-block lg:mt-0 mr-8 text-lg'>
+						<Link
+							to='/'
+							className='block mt-4 lg:inline-block lg:mt-0 mr-8 text-lg'>
 							Home
-						</a>
-						<a className='block mt-4 lg:inline-block lg:mt-0 mr-8 text-lg'>
+						</Link>
+						<Link
+							to='/cart'
+							className='block mt-4 lg:inline-block lg:mt-0 mr-8 text-lg'>
 							<i className='fas fa-shopping-cart m-3 mr-2 text-lg text-gray-700 w-4 h-4'></i>
 							Cart
-						</a>
-						<a
-							href='#'
+						</Link>
+						<Link
+							to='/login'
 							className='block mt-4 lg:inline-block lg:mt-0 mr-8 text-lg'>
 							<span>
 								<i className='fas fa-user m-3 mr-2 text-lg text-gray-700 w-4 h-4'></i>
 								Sign In
 							</span>
-						</a>
+						</Link>
 					</div>
 				</div>
 			</div>
