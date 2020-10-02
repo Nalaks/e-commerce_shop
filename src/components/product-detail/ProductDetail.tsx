@@ -23,7 +23,7 @@ const ProductDetail = () => {
 	}, [])
 
 	return (
-		<section className='flex text-gray-700 body-font overflow-hidden'>
+		<section className='flex text-gray-700 body-font overflow-hidden mt-10'>
 			{product ? (
 				<div className='container px-5 py-8 mx-auto'>
 					<div className='lg:w-4/5 mx-auto flex flex-wrap'>

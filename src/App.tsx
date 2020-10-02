@@ -8,12 +8,14 @@ import ProductDetail from './components/product-detail/ProductDetail'
 const App = () => {
 	return (
 		<Router>
-			<Header />
-			<main>
-				<Route path='/' component={Home} exact />
-				<Route path='/product/:id' component={ProductDetail} />
-			</main>
-			<Footer />
+			<div className='min-h-screen flex flex-col'>
+				<Header />
+				<main className='flex-grow'>
+					<Route path='/' component={Home} exact />
+					<Route path='/product/:id' component={ProductDetail} />
+				</main>
+				<Footer />
+			</div>
 		</Router>
 	)
 }

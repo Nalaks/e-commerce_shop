@@ -26,12 +26,14 @@
 		"typescript": "^3.9.7"
 	},
 	"scripts": {
-		"dev": "npm run watch:css && react-scripts start",
+		"start": "npm run watch:css && react-scripts start",
 		"build": "npm run build:css && react-scripts build",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject",
 		"build:css": "postcss src/styles/app.css -o src/index.css",
-		"watch:css": "postcss src/styles/app.css -o src/index.css"
+		"watch:css": "postcss src/styles/app.css -o src/index.css",
+		"backend": "npm run server --prefix backend",
+		"dev": "concurrently \"npm run start\" \"npm run backend\""
 	},
 	"eslintConfig": {
 		"extends": "react-app"
@@ -52,6 +54,7 @@
 		"@typescript-eslint/eslint-plugin": "^4.3.0",
 		"@typescript-eslint/parser": "^4.3.0",
 		"autoprefixer": "^9.8.6",
+		"concurrently": "^5.3.0",
 		"eslint": "^6.6.0",
 		"eslint-plugin-react": "^7.21.2",
 		"postcss-cli": "^8.0.0",

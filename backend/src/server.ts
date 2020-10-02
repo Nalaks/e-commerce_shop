@@ -1,11 +1,21 @@
 import express from 'express'
+import dotenv from 'dotenv'
 import products from './data/products'
+import connectDB from './config/db'
+
+dotenv.config()
+
+connectDB()
 
 const app = express()
 
-const PORT = 5000
+const PORT = process.env.PORT || 5000
 
-app.listen(PORT, () => console.log('hello from me'))
+app.listen(PORT, () =>
+	console.log(
+		`running in ${process.env.NODE_ENV} mode and listening on port ${PORT}`
+	)
+)
 
 app.get('/api/products', (req, res) => res.json(products))
 
