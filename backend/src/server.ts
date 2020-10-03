@@ -1,7 +1,8 @@
 import express from 'express'
 import dotenv from 'dotenv'
-import products from './data/products'
 import connectDB from './config/db'
+import productRoutes from './routes/productRoutes'
+import { errorHandler, notFound } from './middleware/error'
 
 dotenv.config()
 
@@ -17,11 +18,11 @@ app.listen(PORT, () =>
 	)
 )
 
-app.get('/api/products', (req, res) => res.json(products))
+// product route
+app.use('/api/products', productRoutes)
 
-app.get('/api/products/:id', (req, res) => {
-	const product = products.filter(
-		(x: { _id: string }) => x._id === req.params.id
-	)
-	res.json(product)
-})
+// 404 not found
+app.use(notFound)
+
+// error handling
+app.use(errorHandler)

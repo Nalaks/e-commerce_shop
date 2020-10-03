@@ -12,7 +12,7 @@ const ProductDetail = () => {
 	const getProduct = async () => {
 		try {
 			const res = await axios.get(`/api/products/${id}`)
-			setProduct(res.data[0])
+			setProduct(res.data)
 		} catch (error) {
 			console.log(error)
 		}
@@ -93,7 +93,7 @@ const ProductDetail = () => {
 									</span>
 								</div>
 								<div className='flex ml-8 items-center'>
-									<span className='mr-3'>Amount:</span>
+									<span className='mr-3'>Qty:</span>
 									<div className='relative'>
 										<select className='rounded border appearance-none border-gray-400 py-2 focus:outline-none focus:border-indigo-500 text-base pl-3 pr-10'>
 											<option>1</option>
