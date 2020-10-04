@@ -9,7 +9,7 @@ router.get(
 	'/',
 	asyncHandler(async (req, res) => {
 		const products = await Product.find({})
-
+		// throw new Error('some error that is very long and complicated')
 		res.json(products)
 	})
 )

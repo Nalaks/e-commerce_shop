@@ -15,6 +15,15 @@ export interface RatingProps {
 	product: IProductDetail
 }
 
+export interface ErrorProps {
+	message: string
+}
+
 export interface Params {
 	id: string
+}
+
+export interface RootState {
+	productList: any
+	productDetails: any
 }

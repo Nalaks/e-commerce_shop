@@ -1,30 +1,34 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { IProductDetail, Params } from '../../frontend'
+import { Params, RootState } from '../../frontend'
 import Rating from '../rating/Rating'
-import axios from 'axios'
+import { useDispatch, useSelector } from 'react-redux'
+import { listProductDetails } from '../../actions/productActions'
+import ErrorMessage from '../message/ErrorMessage'
+import Loading from '../loading/Loading'
 
 const ProductDetail = () => {
 	const { id } = useParams<Params>()
 
-	const [product, setProduct] = useState<undefined | IProductDetail>()
+	const dispatch = useDispatch()
 
-	const getProduct = async () => {
-		try {
-			const res = await axios.get(`/api/products/${id}`)
-			setProduct(res.data)
-		} catch (error) {
-			console.log(error)
-		}
-	}
+	const productDetails = useSelector(
+		(state: RootState) => state.productDetails
+	)
+
+	const { loading, error, product } = productDetails
 
 	useEffect(() => {
-		getProduct()
-	}, [])
+		dispatch(listProductDetails(id))
+	}, [dispatch])
 
 	return (
 		<section className='flex text-gray-700 body-font overflow-hidden mt-10'>
-			{product ? (
+			{loading ? (
+				<Loading />
+			) : error ? (
+				<ErrorMessage message={error} />
+			) : product ? (
 				<div className='container px-5 py-8 mx-auto'>
 					<div className='lg:w-4/5 mx-auto flex flex-wrap'>
 						<img
@@ -123,7 +127,7 @@ const ProductDetail = () => {
 									className={
 										'flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none rounded-full ' +
 										(product.countInStock === 0
-											? 'cursor-not-allowed'
+											? 'cursor-not-allowed hover:bg-gray-400'
 											: 'hover:bg-indigo-600')
 									}>
 									Add to cart

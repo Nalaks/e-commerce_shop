@@ -1,30 +1,33 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { IProductDetail } from '../../frontend'
+import { IProductDetail, RootState } from '../../frontend'
 import Rating from '../rating/Rating'
-import axios from 'axios'
+import { useDispatch, useSelector } from 'react-redux'
+import { listProducts } from '../../actions/productActions'
+import Loading from '../loading/Loading'
+import ErrorMessage from '../message/ErrorMessage'
 
 const Products = () => {
-	const getProducts = async () => {
-		try {
-			const res = await axios.get('/api/products')
-			setProductItems(res.data)
-		} catch (error) {
-			console.log(error)
-		}
-	}
-	const [productItems, setProductItems] = useState<
-		undefined | IProductDetail[]
-	>()
+	const dispatch = useDispatch()
+
+	const productList = useSelector(
+		(state: RootState) => state.productList
+	)
+
+	const { loading, error, products } = productList
 
 	useEffect(() => {
-		getProducts()
-	}, [])
+		dispatch(listProducts())
+	}, [dispatch])
 
 	return (
 		<div className='flex flex-wrap -m-4'>
-			{productItems ? (
-				productItems.map((product: IProductDetail) => (
+			{loading ? (
+				<Loading />
+			) : error ? (
+				<ErrorMessage message={error} />
+			) : products ? (
+				products.map((product: IProductDetail) => (
 					<div
 						className='max-w-xs bg-white shadow-lg rounded-lg overflow-hidden my-10 w-full md:w-1/2 mx-16 lg:mx-10'
 						key={product._id}>
