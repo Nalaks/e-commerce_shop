@@ -1,5 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
+import CartView from './components/cart/CartView'
 import Footer from './components/footer/Footer'
 import Header from './components/header/Header'
 import Home from './components/home/Home'
@@ -13,6 +14,7 @@ const App = () => {
 				<main className='flex-grow'>
 					<Route path='/' component={Home} exact />
 					<Route path='/product/:id' component={ProductDetail} />
+					<Route path='/cart/:id?' component={CartView} />
 				</main>
 				<Footer />
 			</div>

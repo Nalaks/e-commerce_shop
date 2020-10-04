@@ -9,3 +9,8 @@ export enum ProductDetails {
 	success = 'PRODUCT_DETAILS_SUCCESS',
 	fail = 'PRODUCT_DETAILS_FAIL'
 }
+
+export enum CartItem {
+	add = 'CART_ADD_ITEM',
+	remove = 'CARD_REMOVE_ITEM'
+}
